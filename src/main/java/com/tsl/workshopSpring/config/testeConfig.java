@@ -10,10 +10,12 @@ import org.springframework.context.annotation.Profile;
 
 import com.tsl.workshopSpring.entities.Category;
 import com.tsl.workshopSpring.entities.Order;
+import com.tsl.workshopSpring.entities.OrderItem;
 import com.tsl.workshopSpring.entities.Product;
 import com.tsl.workshopSpring.entities.User;
 import com.tsl.workshopSpring.entities.enums.OrderStatus;
 import com.tsl.workshopSpring.repositories.CategoryRepository;
+import com.tsl.workshopSpring.repositories.OrderItemRepository;
 import com.tsl.workshopSpring.repositories.OrderRepository;
 import com.tsl.workshopSpring.repositories.ProductRepository;
 import com.tsl.workshopSpring.repositories.UserRepository;
@@ -30,6 +32,8 @@ public class testeConfig implements CommandLineRunner {
 	private CategoryRepository categoryRepository;
 	@Autowired
 	private ProductRepository productRepository;
+	@Autowired
+	private OrderItemRepository orderItemRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -64,6 +68,13 @@ public class testeConfig implements CommandLineRunner {
 		Order o3 = new Order(null, Instant.parse("2019-07-22T15:21:22Z"), OrderStatus.WAITING_PAYMENT, u1);
 
 		userRepository.saveAll(Arrays.asList(u1, u2));
-		orderRepository.saveAll(Arrays.asList(o1, o2, o3));   
+		orderRepository.saveAll(Arrays.asList(o1, o2, o3));
+		
+		OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice()); 
+		OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice()); 
+		OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice()); 
+		OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
+
+		orderItemRepository.saveAll(Arrays.asList(oi1,oi2,oi3,oi4));
 	}
 }

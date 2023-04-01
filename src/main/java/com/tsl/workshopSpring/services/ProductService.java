@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tsl.workshopSpring.entities.Category;
 import com.tsl.workshopSpring.entities.Product;
 import com.tsl.workshopSpring.repositories.ProductRepository;
 
