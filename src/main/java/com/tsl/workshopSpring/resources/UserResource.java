@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import com.tsl.workshopSpring.entities.User;
 import com.tsl.workshopSpring.services.UserService;
 
